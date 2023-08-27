@@ -1,6 +1,8 @@
 .theme--dark {
   --background: #080c0a;
+  --background-rgb: 8, 12, 10;
   --container: #101312;
+  --container-rgb: 16, 19, 18;
   --title: #ffffff;
   --title-rgb: 255, 255, 255;
   --text: #616462;
@@ -13,7 +15,9 @@
 
 .theme--light {
   --background: #dee2d4;
+  --background-rgb: 222, 226, 212;
   --container: #d9dece;
+  --container-rgb: 217, 222, 206;
   --title: #000000;
   --title-rgb: 0, 0, 0;
   --text: #5b5e55;

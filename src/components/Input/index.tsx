@@ -11,7 +11,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <div className="input-container">
-      <label htmlFor={name}>{label}</label>
+      {!!label && <label htmlFor={name}>{label}</label>}
 
       <div className="input-container__wrapper">
         {LeftIcon && <LeftIcon />}
