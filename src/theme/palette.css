@@ -2,18 +2,24 @@
   --background: #080c0a;
   --container: #101312;
   --title: #ffffff;
+  --title-rgb: 255, 255, 255;
   --text: #616462;
   --primary: #3a7347;
+  --primary-rgb: 58, 115, 71;
   --secondary: #c4d2a0;
-  --border: #101410;
+  --secondary-rgb: 196, 210, 160;
+  --border: #1d1d1d;
 }
 
 .theme--light {
   --background: #dee2d4;
   --container: #d9dece;
   --title: #000000;
+  --title-rgb: 0, 0, 0;
   --text: #5b5e55;
   --primary: #3a7347;
+  --primary-rgb: 58, 115, 71;
   --secondary: #c4d2a0;
+  --secondary-rgb: 196, 210, 160;
   --border: #d6dcc6;
 }

@@ -4,7 +4,7 @@
   border-radius: 32px;
   display: flex;
   justify-content: space-between;
-  padding: 0 8px;
+  padding: 0 6px;
   align-items: center;
   transition: 0.3s;
   cursor: pointer;
@@ -33,7 +33,7 @@
   bottom: 3px;
   border-radius: 50%;
   aspect-ratio: 1/1;
-
+  position: -1;
   transition: left 1s;
   background-color: var(--title);
 }

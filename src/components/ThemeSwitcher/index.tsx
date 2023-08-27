@@ -20,15 +20,23 @@ const ThemeSwitcher: React.FC = () => {
       <div className={`theme-switcher__circle ${isDarkMode ? 'dark' : 'light'}`} />
 
       {isDarkMode ? (
-        <BiSun color={palette.title} size={24} />
+        <BiSun color={palette.title} size={16} />
       ) : (
-        <BiSolidSun color={palette.background} size={24} />
+        <BiSolidSun
+          color={palette.background}
+          size={16}
+          style={{ position: 'relative' }}
+        />
       )}
 
       {!isDarkMode ? (
-        <BiMoon color={palette.title} size={24} />
+        <BiMoon color={palette.title} size={16} />
       ) : (
-        <BiSolidMoon color={palette.background} size={24} />
+        <BiSolidMoon
+          color={palette.background}
+          size={16}
+          style={{ position: 'relative' }}
+        />
       )}
     </div>
   );

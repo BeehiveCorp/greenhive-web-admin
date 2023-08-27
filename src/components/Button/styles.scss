@@ -1,0 +1,102 @@
+.button {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 32px;
+  padding: 0 24px;
+  cursor: pointer;
+}
+
+.button__text {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.button.solid {
+  transition: background-color 0.2s;
+  background-color: rgba(var(--title-rgb), 0.2);
+  color: var(--title-rgb);
+}
+
+.button.solid:hover {
+  background-color: rgba(var(--title-rgb), 0.8);
+}
+
+.button.outline {
+  transition: border 0.2s;
+  background: transparent;
+  border: 2px solid rgba(var(--title-rgb), 0.2);
+  color: var(--title-rgb);
+}
+
+.button.outline:hover {
+  border: 2px solid rgba(var(--title-rgb), 0.6);
+}
+
+.button.ghost {
+  transition: color 0.2s;
+  background: transparent;
+  color: rgba(var(--title-rgb), 0.8);
+}
+
+.button.ghost:hover {
+  color: rgba(var(--title-rgb), 1);
+}
+
+.button.primary.solid {
+  background-color: rgba(var(--primary-rgb), 0.09);
+  color: var(--primary-rgb);
+}
+
+.button.primary.solid:hover {
+  background-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.button.primary.outline {
+  background: transparent;
+  border: 2px solid rgba(var(--primary-rgb), 0.1);
+  color: var(--primary-rgb);
+}
+
+.button.primary.outline:hover {
+  border: 2px solid rgba(var(--primary-rgb), 0.2);
+}
+
+.button.primary.ghost {
+  background: transparent;
+  color: rgba(var(--primary-rgb), 0.8);
+}
+
+.button.primary.ghost:hover {
+  color: rgba(var(--primary-rgb), 1);
+}
+
+.button.secondary.solid {
+  background-color: rgba(var(--secondary-rgb), 0.09);
+  color: var(--secondary-rgb);
+}
+
+.button.secondary.solid:hover {
+  background-color: rgba(var(--secondary-rgb), 0.2);
+}
+
+.button.secondary.outline {
+  background: transparent;
+  border: 2px solid rgba(var(--secondary-rgb), 0.1);
+  color: var(--secondary-rgb);
+}
+
+.button.secondary.outline:hover {
+  border: 2px solid rgba(var(--secondary-rgb), 0.2);
+}
+
+.button.secondary.ghost {
+  background: transparent;
+  color: rgba(var(--secondary-rgb), 0.8);
+}
+
+.button.secondary.ghost:hover {
+  color: rgba(var(--secondary-rgb), 1);
+}

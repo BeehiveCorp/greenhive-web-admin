@@ -1,0 +1,39 @@
+.login-page {
+  background-color: var(--background);
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    border: 2px solid var(--border);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+
+    form {
+      width: 360px;
+      margin: 0 auto;
+    }
+
+    &__subtitle {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      display: block;
+      color: var(--primary);
+    }
+
+    &__title {
+      font-family: KyivTypeSansMedium3, sans-serif;
+      font-size: 3.6rem;
+      color: var(--title);
+      margin-bottom: 80px;
+    }
+  }
+}
