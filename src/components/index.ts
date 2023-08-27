@@ -5,3 +5,4 @@ export * from './Button';
 export * from './SideMenu';
 export * from './Avatar';
 export * from './Tabs';
+export * from './DataList';

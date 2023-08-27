@@ -41,7 +41,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ currentTab, onTabChange }) => {
             onClick={() => onTabChange(SIDE_MENU_TABS.HOME)}
             className={`${currentTab === SIDE_MENU_TABS.HOME ? 'active' : ''}`}
           >
-            <BiSolidDashboard size={24} />
+            <BiSolidDashboard size={20} />
             <p>Home</p>
           </li>
 
@@ -49,7 +49,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ currentTab, onTabChange }) => {
             onClick={() => onTabChange(SIDE_MENU_TABS.BLOG)}
             className={`${currentTab === SIDE_MENU_TABS.BLOG ? 'active' : ''}`}
           >
-            <BiAlignLeft size={24} />
+            <BiAlignLeft size={20} />
             <p>Blog</p>
           </li>
 
@@ -57,7 +57,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ currentTab, onTabChange }) => {
             onClick={() => onTabChange(SIDE_MENU_TABS.RPG)}
             className={`${currentTab === SIDE_MENU_TABS.RPG ? 'active' : ''}`}
           >
-            <BiSolidNavigation size={24} />
+            <BiSolidNavigation size={20} />
             <p>RPG</p>
           </li>
         </ul>
@@ -77,7 +77,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ currentTab, onTabChange }) => {
             variant="outline"
             primary
             style={{ width: '48px', borderRadius: '50%', padding: 0 }}
-            RightIcon={() => <BiLogOutCircle size={24} color={palette.primary} />}
+            RightIcon={() => <BiLogOutCircle size={20} color={palette.primary} />}
             onClick={logout}
           />
 

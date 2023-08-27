@@ -17,7 +17,7 @@ const Rpg: React.FC = () => {
       case MENU_TABS.HEROES:
         return <RpgTabs.Heroes />;
       case MENU_TABS.DIFFICULTIES:
-        return <RpgTabs.Characters />;
+        return <RpgTabs.Difficulties />;
     }
   };
 
