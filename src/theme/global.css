@@ -1,0 +1,10 @@
+html {
+  font-size: 62.5% !important;
+}
+
+body {
+  color: var(--title);
+  background-color: var(--background);
+
+  overflow-x: hidden !important;
+}
