@@ -1,0 +1,48 @@
+.theme-switcher {
+  opacity: 0.2;
+  position: relative;
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+  height: 32px;
+  width: 56px;
+  border: 2px solid var(--title);
+}
+
+.theme-switcher:hover {
+  opacity: 1;
+}
+
+.theme-dark .theme-switcher,
+.theme-light .theme-switcher {
+  border: 2px solid red;
+}
+
+.theme-switcher {
+  gap: 6px;
+}
+
+.theme-switcher__circle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  bottom: 3px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+
+  transition: left 1s;
+  background-color: var(--title);
+}
+
+.theme-switcher__circle.dark {
+  left: calc(50%);
+}
+
+.theme-dark .theme-switcher__circle,
+.theme-light .theme-switcher__circle {
+  background-color: var(--title);
+}

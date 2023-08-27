@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '@/contexts/UserContext';
 
 import './styles.css';
+import { ThemeSwitcher } from '@/components';
 
 export function Login() {
   const { user } = useUser();
@@ -18,6 +19,9 @@ export function Login() {
   return (
     <section className="container" id="login-page">
       Login
+      <div>
+        <ThemeSwitcher />
+      </div>
     </section>
   );
 }
