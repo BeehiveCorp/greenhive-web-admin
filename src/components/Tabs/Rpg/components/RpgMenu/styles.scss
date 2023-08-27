@@ -1,0 +1,39 @@
+.menu {
+  ul {
+    display: flex;
+    gap: 32px;
+
+    li {
+      padding: 16px 0;
+      border-radius: 8px;
+      color: var(--title);
+
+      font-size: 1.6rem;
+      font-weight: 300;
+
+      cursor: pointer;
+
+      color: var(--text);
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.active {
+        color: var(--title);
+        font-weight: 600;
+        position: relative;
+
+        .detail {
+          position: absolute;
+          bottom: -2px;
+          left: -4px;
+          right: -4px;
+          height: 3px;
+          border-radius: 8px;
+          background-color: var(--primary);
+        }
+      }
+    }
+  }
+}

@@ -57,7 +57,7 @@ export function Login() {
               variant="solid"
               primary
               RightIcon={() => <BiRightArrowAlt size={32} color={palette.primary} />}
-              style={{ width: 'fit-content', padding: '8px', marginTop: '24px' }}
+              style={{ width: '48px', padding: 0, marginTop: '24px' }}
               onClick={onFormSubmit}
             />
           </div>

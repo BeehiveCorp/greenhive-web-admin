@@ -1,0 +1,85 @@
+.side-menu {
+  border: 0 solid var(--border);
+  border-right-width: 1px;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 24px;
+
+  &__logo {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__tabs {
+    margin-top: 40px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 16px;
+        border-radius: 8px;
+
+        font-size: 1.6rem;
+        font-weight: 600;
+
+        cursor: pointer;
+        transition: opacity 0.3s ease-in-out;
+
+        opacity: 0.6;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        &.active {
+          background-color: rgba(var(--primary-rgb), 0.1);
+          color: var(--primary);
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &__profile {
+    margin-top: 40px;
+    background-color: var(--container);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0;
+
+    &__name {
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: var(--title);
+    }
+
+    &__company {
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: var(--text);
+      margin-top: 4px;
+    }
+
+    &__actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__theme-switcher {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -29,7 +29,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
 
     setUser(data?.user);
-    localStorage.setItem('@token', data.token);
+    localStorage.setItem('@token', data?.token);
   };
 
   useEffect(() => {
