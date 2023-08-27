@@ -1,4 +1,5 @@
-import { ReactNode, createContext, useContext, useState } from 'react';
+import { UserService } from '@/services';
+import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
 type User = {
   id?: string;
@@ -10,18 +11,47 @@ type User = {
 
 type UserContextType = {
   user?: User | null;
-  login: () => void;
+  login: (email: string, password: string) => void;
   logout: () => void;
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [user] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(null);
 
-  const login = () => null;
+  const login = async (email: string, password: string) => {
+    const { data, error } = await UserService.login(email, password);
 
-  const logout = () => null;
+    if (error) {
+      alert(error);
+      return;
+    }
+
+    setUser(data?.user);
+    localStorage.setItem('@token', data.token);
+  };
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('@user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('@user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('@user');
+    }
+  }, [user]);
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('@token');
+    localStorage.removeItem('@user');
+  };
 
   return (
     <UserContext.Provider value={{ user, login, logout }}>

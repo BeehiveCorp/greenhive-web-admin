@@ -2,7 +2,13 @@ import { InputProps } from './types';
 
 import './styles.scss';
 
-const Input: React.FC<InputProps> = ({ label, name, LeftIcon, RightIcon }, rest) => {
+const Input: React.FC<InputProps> = ({
+  label,
+  name,
+  LeftIcon,
+  RightIcon,
+  ...rest
+}) => {
   return (
     <div className="input-container">
       <label htmlFor={name}>{label}</label>

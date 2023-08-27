@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
@@ -16,8 +16,8 @@ export function Login() {
   const { palette } = useTheme();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('david.adm@gmail.com');
+  const [password, setPassword] = useState('12345678');
 
   useEffect(() => {
     if (user?.id) {
@@ -25,8 +25,9 @@ export function Login() {
     }
   }, [user, navigate]);
 
-  const onFormSubmit = () => {
-    login();
+  const onFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    login(email, password);
   };
 
   return (
@@ -39,7 +40,6 @@ export function Login() {
         <form onSubmit={onFormSubmit}>
           <span className="login-page__content__subtitle">olá, administrador</span>
           <h4 className="login-page__content__title">Faça login para administrar</h4>
-
           <Input
             label="e-mail"
             value={email}
@@ -58,6 +58,7 @@ export function Login() {
               primary
               RightIcon={() => <BiRightArrowAlt size={32} color={palette.primary} />}
               style={{ width: 'fit-content', padding: '8px', marginTop: '24px' }}
+              onClick={onFormSubmit}
             />
           </div>
         </form>
