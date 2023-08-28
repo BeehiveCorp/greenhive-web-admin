@@ -11,3 +11,7 @@ export function getInitials(name: string): string {
     .join('')
     .slice(0, 2);
 }
+
+export function getRelativeUri(path: string): string {
+  return `http://localhost:3333${path}`;
+}

@@ -1,11 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import {
-  BiPalette,
-  BiSearch,
-  BiSolidCheckCircle,
-  BiSolidJoystick,
-} from 'react-icons/bi';
+import { BiJoystick, BiPalette, BiSearch, BiSolidCheckCircle } from 'react-icons/bi';
 
 import { DataList } from '@/components/DataList';
 import { Input } from '@/components/Input';
@@ -111,7 +106,7 @@ const Difficulties: React.FC = () => {
           text="Nova dificuldade"
           style={{ color: palette.primary, width: 'fit-content' }}
           primary
-          RightIcon={() => <BiSolidJoystick color={palette.primary} size={24} />}
+          RightIcon={() => <BiJoystick color={palette.primary} size={24} />}
           onClick={() => setIsModalVisible((prev) => !prev)}
         />
       </div>
@@ -120,7 +115,7 @@ const Difficulties: React.FC = () => {
         <DataList
           header={[
             { key: 'name', label: 'Nome' },
-            { key: 'ambicoins_reward', label: 'Recompensa em Ambcoins' },
+            { key: 'ambicoins_reward', label: 'Recompensa em Ambicoins' },
             { key: 'xp_reward', label: 'Recompensa em XP' },
             { key: 'hex_code', label: 'Cor' },
           ]}

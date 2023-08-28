@@ -7,3 +7,5 @@ export * from './Avatar';
 export * from './Tabs';
 export * from './DataList';
 export * from './Modal';
+export * from './Textarea';
+export * from './Dropzone';

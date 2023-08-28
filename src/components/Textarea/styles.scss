@@ -1,0 +1,38 @@
+.textarea-container {
+  width: 100%;
+
+  label {
+    margin-bottom: 16px;
+    display: block;
+    font-size: 1.6rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    background-color: var(--container);
+    border-radius: 8px;
+    height: 180px;
+    padding: 0 16px;
+    outline: 1px solid var(--border);
+    gap: 8px;
+
+    textarea {
+      background: none;
+      outline: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.6rem;
+      flex: 1;
+      resize: none;
+      padding: 16px 0;
+    }
+
+    textarea::placeholder {
+      opacity: 0.3;
+    }
+  }
+}
+
+.textarea-container + .textarea-container {
+  margin-top: 24px;
+}

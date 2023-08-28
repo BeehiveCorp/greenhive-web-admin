@@ -5,5 +5,7 @@ export type ModalProps = {
   isVisible: boolean;
   title?: string;
   description?: string;
+  height?: string;
+  width?: string;
   onClose: () => void;
 };

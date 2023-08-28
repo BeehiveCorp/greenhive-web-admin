@@ -1,0 +1,36 @@
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed var(--primary);
+  width: 100%;
+  border-radius: 8px;
+  height: 180px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+  cursor: pointer;
+
+  &.--dragging {
+    border: 1px dashed var(--secondary);
+  }
+
+  &__preview {
+    height: 80%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  &__empty-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    align-items: center;
+
+    &__message {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+  }
+}
