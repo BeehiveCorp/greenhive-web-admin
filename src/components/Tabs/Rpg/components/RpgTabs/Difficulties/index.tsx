@@ -166,7 +166,10 @@ const Difficulties: React.FC = () => {
             />
           </div>
 
-          <div className="new-difficulty__row">
+          <div
+            className="new-difficulty__row"
+            style={{ justifyContent: 'flex-end' }}
+          >
             <Button
               variant="solid"
               text="Salvar"

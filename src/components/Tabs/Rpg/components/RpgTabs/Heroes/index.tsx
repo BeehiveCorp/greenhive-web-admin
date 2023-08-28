@@ -162,7 +162,7 @@ const Heroes: React.FC = () => {
             <Dropzone selectedFile={avatar} onUpload={setAvatar} />
           </div>
 
-          <div className="new-hero__row">
+          <div className="new-hero__row" style={{ justifyContent: 'flex-end' }}>
             <Button
               variant="solid"
               text="Salvar"

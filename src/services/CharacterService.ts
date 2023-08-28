@@ -1,16 +1,16 @@
 import { AxiosError } from 'axios';
 import { api } from './api';
 
-interface CreatePayload {
+export interface CreatePayload {
   name: string;
   description: string;
 }
 
-type TCharacter = {
+export type TCharacter = {
   id?: string;
   name: string;
   description: string;
-  avatar_url: string | null;
+  avatar_url: string;
   created_at: Date;
   updated_at: Date;
 };
