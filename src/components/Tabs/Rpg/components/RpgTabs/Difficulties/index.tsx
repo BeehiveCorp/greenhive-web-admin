@@ -1,5 +1,11 @@
-import { useState } from 'react';
-import { BiSearch, BiSolidJoystick } from 'react-icons/bi';
+import { useEffect, useState } from 'react';
+
+import {
+  BiPalette,
+  BiSearch,
+  BiSolidCheckCircle,
+  BiSolidJoystick,
+} from 'react-icons/bi';
 
 import { DataList } from '@/components/DataList';
 import { Input } from '@/components/Input';
@@ -8,29 +14,87 @@ import { Modal } from '@/components/Modal';
 
 import { useTheme } from '@/contexts/ThemeContext';
 
+import { DifficultyService, TDifficulty } from '@/services';
+
 import './styles.scss';
 
 const Difficulties: React.FC = () => {
   const { palette } = useTheme();
 
+  const [difficulties, setDifficulties] = useState<TDifficulty[]>([]);
+
   const [search, setSearch] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const headers = [
-    { key: 'name', label: 'Nome' },
-    { key: 'age', label: 'Idade' },
-    { key: 'city', label: 'Cidade' },
-  ];
+  const [name, setName] = useState('');
+  const [hexColor, setHexColor] = useState(palette.primary);
+  const [xpReward, setXpReward] = useState('');
+  const [ambicoinsReward, setAmbicoinsReward] = useState('');
 
-  const data = [
-    { name: 'João', age: 28, city: 'RJ' },
-    { name: 'Isabela', age: 18, city: 'RJ' },
-    { name: 'Jorge', age: 23, city: 'SP' },
-  ];
+  const cleanModalFields = () => {
+    setName('');
+    setHexColor('');
+    setXpReward('');
+    setAmbicoinsReward('');
+  };
 
-  const columnWidths = ['10%', '60%', '30%'];
+  const onSaveNewDifficulty = async () => {
+    const { error } = await DifficultyService.create({
+      ambicoins_reward: Number(ambicoinsReward),
+      xp_reward: Number(xpReward),
+      hex_code: hexColor,
+      name,
+    });
 
-  const filteredData = data.filter((row) => row.name.includes(search));
+    if (error) {
+      alert(error);
+    }
+
+    getDifficulties();
+    setIsModalVisible(false);
+    cleanModalFields();
+  };
+
+  const getDifficulties = async () => {
+    const { data, error } = await DifficultyService.getAll();
+
+    if (error) {
+      alert(error);
+      return;
+    }
+
+    setDifficulties(data ?? []);
+  };
+
+  useEffect(() => {
+    getDifficulties();
+  }, []);
+
+  const filteredDifficulties = difficulties.filter((difficulty) => {
+    const name = difficulty.name.trim().toLowerCase();
+    const query = search.trim().toLowerCase();
+
+    return name.includes(query);
+  });
+
+  const serializedDifficulties = filteredDifficulties.map((difficulty) => ({
+    name: difficulty.name,
+    ambicoins_reward: difficulty.ambicoins_reward,
+    xp_reward: difficulty.xp_reward,
+    hex_code: (
+      <>
+        <div
+          style={{
+            background: difficulty.hex_code,
+            height: '12px',
+            width: '12px',
+            borderRadius: '50%',
+          }}
+        />
+        <p>{difficulty.hex_code}</p>
+      </>
+    ),
+  }));
 
   return (
     <div className="difficulties-tab">
@@ -53,7 +117,16 @@ const Difficulties: React.FC = () => {
       </div>
 
       <div className="difficulties-tab__content">
-        <DataList header={headers} data={filteredData} columnWidths={columnWidths} />
+        <DataList
+          header={[
+            { key: 'name', label: 'Nome' },
+            { key: 'ambicoins_reward', label: 'Recompensa em Ambcoins' },
+            { key: 'xp_reward', label: 'Recompensa em XP' },
+            { key: 'hex_code', label: 'Cor' },
+          ]}
+          data={serializedDifficulties}
+          columnWidths={['20%', '30%', '30%', '20%']}
+        />
       </div>
 
       <Modal
@@ -62,7 +135,55 @@ const Difficulties: React.FC = () => {
         isVisible={isModalVisible}
         onClose={() => setIsModalVisible(false)}
       >
-        <p>Content</p>
+        <div className="new-difficulty">
+          <div className="new-difficulty__row">
+            <Input
+              label="Nome"
+              placeholder="Nome da dificuldade"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Input
+              label="Cor"
+              placeholder="Cor da dificuldade"
+              value={hexColor}
+              onChange={(e) => setHexColor(e.target.value)}
+              onColorPick={({ hex }) => setHexColor(hex)}
+              RightIcon={() => (
+                <BiPalette color={hexColor ?? palette.primary} size={24} />
+              )}
+            />
+          </div>
+
+          <div className="new-difficulty__row">
+            <Input
+              label="Recompensa em XP"
+              placeholder="Recompensa em XP"
+              value={xpReward}
+              onChange={(e) => setXpReward(e.target.value)}
+            />
+
+            <Input
+              label="Recompensa em Ambicoins"
+              placeholder="Recompensa em Ambicoins"
+              value={ambicoinsReward}
+              onChange={(e) => setAmbicoinsReward(e.target.value)}
+            />
+          </div>
+
+          <div className="new-difficulty__row">
+            <Button
+              variant="solid"
+              text="Salvar"
+              style={{ color: palette.primary }}
+              primary
+              RightIcon={() => (
+                <BiSolidCheckCircle color={palette.primary} size={24} />
+              )}
+              onClick={onSaveNewDifficulty}
+            />
+          </div>
+        </div>
       </Modal>
     </div>
   );

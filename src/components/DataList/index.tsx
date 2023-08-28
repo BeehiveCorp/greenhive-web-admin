@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 type DataListProps = {
   header: { key: string; label: string }[];
-  data: Record<string, string | number>[];
+  data: Record<string, string | number | ReactNode>[];
   columnWidths: string[];
 };
 

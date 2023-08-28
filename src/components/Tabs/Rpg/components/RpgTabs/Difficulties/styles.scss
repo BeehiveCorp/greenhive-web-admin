@@ -14,4 +14,17 @@
   &__content {
     margin-top: 64px;
   }
+
+  .new-difficulty {
+    &__row {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+
+      .input-container {
+        flex: 1;
+        margin-top: 0;
+      }
+    }
+  }
 }

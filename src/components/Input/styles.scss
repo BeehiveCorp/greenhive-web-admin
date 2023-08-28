@@ -1,4 +1,6 @@
 .input-container {
+  position: relative;
+
   label {
     margin-bottom: 16px;
     display: block;
@@ -24,6 +26,18 @@
       font-size: 1.6rem;
       flex: 1;
     }
+
+    input::placeholder {
+      opacity: 0.3;
+    }
+  }
+
+  &__color-picker {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 100px;
+    transform: translateX(-35%);
   }
 }
 
