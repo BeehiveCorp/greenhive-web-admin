@@ -1,5 +1,5 @@
 import { useUser } from '@/contexts/UserContext';
-import { getInitials } from '@/utils';
+import { getInitials, getRelativeUri } from '@/utils';
 
 import { AvatarProps } from './types';
 
@@ -14,7 +14,7 @@ const Avatar: React.FC<AvatarProps> = ({ size = 24, style }) => {
       style={{ height: `${size}px`, width: `${size}px`, ...style }}
     >
       {user?.avatar_url ? (
-        <img src={user.avatar_url} alt="Foto do usuário" />
+        <img src={getRelativeUri(user.avatar_url)} alt="Foto do usuário" />
       ) : (
         <span>{getInitials(user?.name ?? '')}</span>
       )}

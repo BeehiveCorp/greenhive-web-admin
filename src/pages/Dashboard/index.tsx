@@ -33,7 +33,10 @@ export function Dashboard() {
   return (
     <section className="container dashboard-page">
       <SideMenu currentTab={tab} onTabChange={setTab} />
-      <CurrentTab />
+
+      <div className="dashboard-page__content">
+        <CurrentTab />
+      </div>
     </section>
   );
 }

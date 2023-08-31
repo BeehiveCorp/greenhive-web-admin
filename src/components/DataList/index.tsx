@@ -35,7 +35,7 @@ const DataList: React.FC<DataListProps> = ({ header, data, columnWidths }) => {
               className="data-list-row-cell"
               style={{ width: columnWidths[idx] || defaultColumnWidth }}
             >
-              {row[col.key]}
+              <span className="data-list-row-cell-content">{row[col.key]}</span>
             </div>
           ))}
         </div>

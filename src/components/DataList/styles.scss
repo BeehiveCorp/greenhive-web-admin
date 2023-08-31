@@ -29,10 +29,21 @@
       gap: 8px;
       padding: 0 16px;
       text-align: left;
+      background-color: var(--container);
+      font-size: 14px;
+      color: var(--text);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      background-color: var(--container);
+      max-width: 100%;
+
+      &-content {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
     }
   }
 

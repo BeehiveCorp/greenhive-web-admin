@@ -77,7 +77,7 @@ const Difficulties: React.FC = () => {
     ambicoins_reward: difficulty.ambicoins_reward,
     xp_reward: difficulty.xp_reward,
     hex_code: (
-      <>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <div
           style={{
             background: difficulty.hex_code,
@@ -87,7 +87,7 @@ const Difficulties: React.FC = () => {
           }}
         />
         <p>{difficulty.hex_code}</p>
-      </>
+      </div>
     ),
   }));
 

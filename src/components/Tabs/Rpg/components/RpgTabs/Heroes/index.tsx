@@ -80,14 +80,14 @@ const Heroes: React.FC = () => {
 
   const serializedHeroes = filteredHeroes.map((hero) => ({
     name: (
-      <>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <img
           style={{ width: '24px', height: '24px', borderRadius: '50%' }}
           src={getRelativeUri(hero.avatar_url)}
           alt="Avatar do herói"
         />
         <p>{hero.name}</p>
-      </>
+      </div>
     ),
     description: hero.description,
     lore: hero.lore,
