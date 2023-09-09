@@ -1,0 +1,31 @@
+#toolbar {
+  border: none;
+  background-color: var(--container);
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  gap: 24px;
+  position: sticky;
+  top: 56px;
+  z-index: 9;
+  background-color: rgba(var(--container-rgb), 0.8);
+  backdrop-filter: blur(10px) saturate(200%);
+}
+
+.ql-snow .ql-picker-options {
+  background-color: var(--container) !important;
+  border-color: var(--border) !important;
+  border-radius: 8px !important;
+  margin-top: 8px !important;
+}
+
+.ql-snow .ql-picker.ql-header {
+  width: 120px !important;
+}
+
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
+  border-color: var(--border) !important;
+  border-radius: 8px !important;
+}

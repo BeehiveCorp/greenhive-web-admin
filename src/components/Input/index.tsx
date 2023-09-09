@@ -15,6 +15,7 @@ const Input: React.FC<InputProps> = ({
   RightIcon,
   onColorPick,
   value,
+  containerStyle,
   ...rest
 }) => {
   const { palette } = useTheme();
@@ -25,7 +26,7 @@ const Input: React.FC<InputProps> = ({
     <div className="input-container">
       {!!label && <label htmlFor={name}>{label}</label>}
 
-      <div className="input-container__wrapper">
+      <div className="input-container__wrapper" style={containerStyle}>
         {LeftIcon && <LeftIcon />}
 
         <input

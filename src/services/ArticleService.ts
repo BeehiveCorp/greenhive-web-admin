@@ -8,7 +8,8 @@ export interface CreateArticlePayload {
   content: string;
   xp_reward: number;
   ambicoins_reward: number;
-  author: TUser;
+  views: number;
+  author_id: string;
 }
 
 export type TArticle = {

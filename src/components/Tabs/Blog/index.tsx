@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BiPlusCircle, BiSearch } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 import { ArticleService, TArticle } from '@/services';
 
@@ -12,6 +13,7 @@ import './styles.scss';
 
 const Blog: React.FC = () => {
   const { palette } = useTheme();
+  const navigate = useNavigate();
 
   const [articles, setArticles] = useState<TArticle[]>([]);
 
@@ -58,13 +60,14 @@ const Blog: React.FC = () => {
             style={{ color: palette.primary, width: 'fit-content' }}
             primary
             RightIcon={() => <BiPlusCircle color={palette.primary} size={24} />}
-            onClick={() => console.log('new')}
+            onClick={() => navigate('/new-article')}
           />
         </div>
 
         <div className="blog-tab__content__articles">
           {filteredArticles.map((article) => (
             <Article
+              key={article.id}
               author={article.author}
               title={article.title}
               views={article.views}
