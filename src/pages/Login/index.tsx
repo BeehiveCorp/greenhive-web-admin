@@ -16,7 +16,7 @@ export function Login() {
   const { palette } = useTheme();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('david.adm@gmail.com');
+  const [email, setEmail] = useState('almeida@gmail.com');
   const [password, setPassword] = useState('12345678');
 
   useEffect(() => {

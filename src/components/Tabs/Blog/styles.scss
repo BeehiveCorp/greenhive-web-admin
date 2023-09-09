@@ -1,9 +1,29 @@
 .blog-tab {
-  padding: 80px 0 0 80px;
+  padding: 80px 0 80px 80px;
 
   &__title {
     font-size: 3.2rem;
     color: var(--title);
     font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  &__filter {
+    display: flex;
+    gap: 32px;
+    justify-content: space-between;
+
+    .input-container {
+      flex: 0.6;
+    }
+  }
+
+  &__content {
+    &__articles {
+      padding: 80px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
   }
 }

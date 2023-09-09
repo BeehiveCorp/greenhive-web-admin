@@ -1,24 +1,34 @@
 import { AxiosError } from 'axios';
-import { api } from './api';
 
-export interface CreateCharacterPayload {
-  name: string;
-  description: string;
+import { api } from './api';
+import { TUser } from '.';
+
+export interface CreateArticlePayload {
+  title: string;
+  content: string;
+  xp_reward: number;
+  ambicoins_reward: number;
+  author: TUser;
 }
 
-export type TCharacter = {
+export type TArticle = {
   id?: string;
-  name: string;
-  description: string;
-  avatar_url: string;
-  created_at: Date;
-  updated_at: Date;
+  reader_id: string;
+  article_id: string;
+  title: string;
+  thumbnail_url: string;
+  xp_reward: number;
+  ambicoins_reward: number;
+  views: number;
+  author: TUser;
+  created_at: string;
+  updated_at: string;
 };
 
-class CharacterService {
+class ArticleService {
   static create = async (payload: FormData) => {
     try {
-      const { data } = await api.post('/character/create', payload, {
+      const { data } = await api.post('/article/create', payload, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -32,9 +42,9 @@ class CharacterService {
     }
   };
 
-  static getAll = async (): Promise<{ error?: string; data?: TCharacter[] }> => {
+  static getAll = async (): Promise<{ error?: string; data?: TArticle[] }> => {
     try {
-      const { data } = await api.get('/character/all');
+      const { data } = await api.get('/article/all');
       return { data };
     } catch (error) {
       const exception = error as AxiosError<{ message?: string; error?: string }>;
@@ -46,4 +56,4 @@ class CharacterService {
   };
 }
 
-export { CharacterService };
+export { ArticleService };

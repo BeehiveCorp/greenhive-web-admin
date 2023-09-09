@@ -1,0 +1,58 @@
+.article {
+  background-color: var(--container);
+  padding: 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+
+  &__header {
+    overflow: hidden;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    div {
+      overflow: hidden;
+    }
+
+    &__author {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: var(--title);
+    }
+
+    &__created {
+      margin-top: 4px;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--text);
+    }
+  }
+
+  &__thumbnail {
+    img {
+      max-width: 100%;
+      width: 100%;
+      border-radius: 8px;
+      height: 80px;
+      object-fit: cover;
+    }
+  }
+
+  &__footer {
+    &__title {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: var(--title);
+    }
+
+    &__views {
+      margin-top: 4px;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--text);
+    }
+  }
+}

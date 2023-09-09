@@ -1,12 +1,18 @@
 import axios from 'axios';
 
-const token = localStorage.getItem('@token');
+export function createApiInstance() {
+  const token = localStorage.getItem('@token');
 
-console.log(token);
+  const headers: { Authorization?: string } = {};
 
-export const api = axios.create({
-  baseURL: 'http://localhost:3333',
-  headers: {
-    Authorization: token ?? null,
-  },
-});
+  if (token) {
+    headers.Authorization = token;
+  }
+
+  return axios.create({
+    baseURL: 'http://localhost:3333',
+    headers,
+  });
+}
+
+export const api = createApiInstance();

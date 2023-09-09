@@ -5,18 +5,33 @@ import { AvatarProps } from './types';
 
 import './styles.scss';
 
-const Avatar: React.FC<AvatarProps> = ({ size = 24, style }) => {
+const Avatar: React.FC<AvatarProps> = ({
+  size = 24,
+  uri,
+  name,
+  containerStyle,
+  initialsStyle,
+}) => {
   const { user } = useUser();
+
+  const avatarUrl = uri || user?.avatar_url;
+  const nameWhenNoAvatar = name || user?.name;
 
   return (
     <div
       className="avatar"
-      style={{ height: `${size}px`, width: `${size}px`, ...style }}
+      style={{
+        height: `${size}px`,
+        width: `${size}px`,
+        minHeight: `${size}px`,
+        minWidth: `${size}px`,
+        ...containerStyle,
+      }}
     >
-      {user?.avatar_url ? (
-        <img src={getRelativeUri(user.avatar_url)} alt="Foto do usuário" />
+      {avatarUrl ? (
+        <img src={getRelativeUri(avatarUrl)} alt="Foto do usuário" />
       ) : (
-        <span>{getInitials(user?.name ?? '')}</span>
+        <span style={initialsStyle}>{getInitials(nameWhenNoAvatar ?? '')}</span>
       )}
     </div>
   );

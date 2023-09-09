@@ -1,16 +1,8 @@
-import { UserService } from '@/services';
+import { TUser, UserService } from '@/services';
 import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
-type User = {
-  id?: string;
-  name: string;
-  username: string;
-  email: string;
-  avatar_url: string;
-};
-
 type UserContextType = {
-  user?: User | null;
+  user?: TUser | null;
   login: (email: string, password: string) => void;
   logout: () => void;
 };
@@ -18,7 +10,7 @@ type UserContextType = {
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<TUser | null>(null);
 
   const login = async (email: string, password: string) => {
     const { data, error } = await UserService.login(email, password);

@@ -65,7 +65,10 @@ const SideMenu: React.FC<SideMenuProps> = ({ currentTab, onTabChange }) => {
 
       <div className="side-menu__profile">
         <Avatar
-          style={{ backgroundColor: palette.background, marginBottom: '16px' }}
+          containerStyle={{
+            backgroundColor: palette.background,
+            marginBottom: '16px',
+          }}
           size={80}
         />
 

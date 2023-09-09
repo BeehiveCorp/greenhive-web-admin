@@ -13,7 +13,7 @@ import { useTheme } from '@/contexts/ThemeContext';
 import {
   CharacterService,
   TCharacter,
-  CreatePayload,
+  CreateCharacterPayload,
 } from '@/services/CharacterService';
 
 import { getRelativeUri } from '@/utils';
@@ -41,7 +41,7 @@ const Characters: React.FC = () => {
   const onSaveNewCharacter = async () => {
     const formData = new FormData();
 
-    const data: CreatePayload = { name, description };
+    const data: CreateCharacterPayload = { name, description };
 
     formData.append('data', JSON.stringify(data));
     if (avatar) formData.append('file', avatar);

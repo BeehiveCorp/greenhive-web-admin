@@ -8,3 +8,10 @@
     padding: 0 40px;
   }
 }
+
+.single-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

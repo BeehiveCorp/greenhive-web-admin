@@ -1,4 +1,7 @@
 export type AvatarProps = {
   size?: number;
-  style?: React.CSSProperties;
+  containerStyle?: React.CSSProperties;
+  initialsStyle?: React.CSSProperties;
+  uri?: string;
+  name?: string;
 };

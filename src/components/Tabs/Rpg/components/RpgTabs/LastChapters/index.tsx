@@ -3,7 +3,7 @@ import './styles.scss';
 const LastChapters: React.FC = () => {
   return (
     <div className="last-chapters-tab">
-      <h3>LastChapters</h3>
+      <h3>🚧 em desenvolvimento</h3>
     </div>
   );
 };
